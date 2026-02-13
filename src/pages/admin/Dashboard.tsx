@@ -5,9 +5,7 @@ import {
   MessageSquare, 
   Users, 
   Clock,
-  ArrowRight,
-  TrendingUp,
-  Eye
+  ArrowRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/lib/database';
@@ -288,7 +286,7 @@ const AdminDashboard = () => {
         </div>
         <div className="space-y-4">
           {recentActivity.length > 0 ? (
-            recentActivity.map((activity, index) => (
+            recentActivity.map((activity) => (
               <div
                 key={`${activity.type}-${activity.id}`}
                 className="flex items-start gap-4 p-4 bg-white/5 rounded-lg"

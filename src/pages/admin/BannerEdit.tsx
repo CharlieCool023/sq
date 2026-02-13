@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, Save, Image as ImageIcon, Upload, X } from 'lucide-react';
+import { ArrowLeft, Save, Upload, X } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/database';
 

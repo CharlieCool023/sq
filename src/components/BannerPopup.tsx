@@ -1,48 +1,91 @@
 import { useState, useEffect } from 'react';
 import { X, ArrowRight } from 'lucide-react';
 import { useBannerContext } from '@/contexts/BannerContext';
+import { supabase } from '@/lib/database';
 
-// Sample banner data - in production, this would come from the database
-const sampleBanners = [
-  {
-    id: '1',
-    title: 'Free Business Audit',
-    description: 'Schedule a complimentary 60-second business audit to identify growth opportunities.',
-    image_url: null,
-    link_url: '/contact',
-    delay_seconds: 3,
-  },
-];
+interface Banner {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image_url: string | null;
+  button_text: string | null;
+  button_link: string | null;
+  type: string;
+  is_active: boolean;
+  display_order: number;
+  delay_seconds: number;
+  start_date: string | null;
+  end_date: string | null;
+  created_at: string;
+}
 
 const BannerPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentBanner] = useState(sampleBanners[0]);
+  const [banners, setBanners] = useState<Banner[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const { openBooking } = useBannerContext();
 
   useEffect(() => {
-    // Check if banner was already shown in this session
+    const fetchBanners = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('banners')
+          .select('*')
+          .eq('is_active', true)
+          .order('display_order', { ascending: true });
+
+        if (error) {
+          console.error('Error fetching banners:', error);
+          return;
+        }
+
+        if (data && data.length > 0) {
+          setBanners(data);
+          showNextBanner(data);
+        }
+      } catch (err) {
+        console.error('Error fetching banners:', err);
+      }
+    };
+
+    fetchBanners();
+  }, []);
+
+  const showNextBanner = (bannerList: Banner[]) => {
     const hasShownBanner = sessionStorage.getItem('sq_banner_shown');
     
-    if (!hasShownBanner && currentBanner) {
+    if (!hasShownBanner && bannerList.length > 0) {
+      const banner = bannerList[currentIndex];
       const timer = setTimeout(() => {
         setIsVisible(true);
         sessionStorage.setItem('sq_banner_shown', 'true');
-      }, currentBanner.delay_seconds * 1000);
+      }, (banner.delay_seconds || 3) * 1000);
 
       return () => clearTimeout(timer);
     }
-  }, [currentBanner]);
+  };
 
   const handleClose = () => {
     setIsVisible(false);
+    // Show next banner in session
+    if (currentIndex < banners.length - 1) {
+      setCurrentIndex(prev => prev + 1);
+      setTimeout(() => setIsVisible(true), 1000);
+    }
   };
 
   const handleAction = () => {
     handleClose();
-    if (currentBanner?.link_url === '/contact') {
+    const banner = banners[currentIndex];
+    if (banner?.button_link === '/contact') {
       openBooking();
+    } else if (banner?.button_link) {
+      window.location.href = banner.button_link;
     }
   };
+
+  const currentBanner = banners[currentIndex];
 
   if (!isVisible || !currentBanner) return null;
 
@@ -71,7 +114,7 @@ const BannerPopup = () => {
               onClick={handleAction}
               className="inline-flex items-center gap-2 px-4 py-2 bg-[#F47B20] text-white text-sm font-medium rounded-lg hover:bg-[#FF9A4D] transition-colors"
             >
-              Learn More
+              {currentBanner.button_text || 'Learn More'}
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Search, Mail, Eye, Trash2, CheckCircle } from 'lucide-react';
+import { Search, Mail, Trash2, CheckCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/database';

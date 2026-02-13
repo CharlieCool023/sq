@@ -112,7 +112,7 @@ const JobApplication = () => {
         const fileExt = resume.name.split('.').pop();
         const fileName = `${Date.now()}-${Math.random()}.${fileExt}`;
         
-        const { data: uploadData, error: uploadError } = await supabase.storage
+        const { error: uploadError } = await supabase.storage
           .from('resumes')
           .upload(fileName, resume);
 

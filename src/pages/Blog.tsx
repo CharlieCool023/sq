@@ -18,13 +18,7 @@ interface BlogPost {
   created_at: string;
 }
 
-const categoryColors: Record<string, string> = {
-  'Finance': 'from-[#22C55E] to-[#10B981]',
-  'Data': 'from-[#7B1F7B] to-[#9B3F9B]',
-  'Operations': 'from-[#0066CC] to-[#00A3E0]',
-  'Technology': 'from-[#F47B20] to-[#FF9A4D]',
-  'Strategy': 'from-[#8B5CF6] to-[#A78BFA]',
-};
+
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState('');
