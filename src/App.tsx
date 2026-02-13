@@ -17,6 +17,7 @@ import Contact from '@/pages/Contact';
 import SuccessStories from '@/pages/SuccessStories';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import TermsOfService from '@/pages/TermsOfService';
+import NotFound from '@/pages/NotFound';
 
 // Scroll to top component
 const ScrollToTop = () => {
@@ -94,6 +95,9 @@ function App() {
                 <Route path="/admin/settings" element={<AdminSettings />} />
               </Route>
             </Route>
+
+            {/* 404 - Catch all */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
 
           {/* Global Components */}
