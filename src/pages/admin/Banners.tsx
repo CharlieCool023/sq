@@ -154,7 +154,7 @@ const AdminBanners = () => {
                   <td className="p-4">
                     <div className="flex items-center justify-end gap-2">
                       <Link
-                        to={`/admin/banners/${banner.id}`}
+                        to={`/admin/banners/edit/${banner.id}`}
                         className="p-2 hover:bg-white/10 rounded-lg transition-colors text-white/60 hover:text-white"
                       >
                         <Edit2 className="w-4 h-4" />

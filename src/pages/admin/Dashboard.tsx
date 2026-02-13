@@ -69,46 +69,39 @@ const AdminDashboard = () => {
 
   const fetchDashboardData = async () => {
     try {
-      // Fetch stats using the custom function
-      const { data: statsData, error: statsError } = await supabase
-        .rpc('get_dashboard_stats');
+      // Fetch stats using individual counts (no RPC function needed)
+      const [statsSubmissions, statsApplications, statsPosts, statsCareers, statsUnread] = await Promise.all([
+        supabase.from('contact_submissions').select('id', { count: 'exact', head: true }),
+        supabase.from('job_applications').select('id', { count: 'exact', head: true }),
+        supabase.from('blog_posts').select('id', { count: 'exact', head: true }),
+        supabase.from('career_openings').select('id', { count: 'exact', head: true }).eq('status', true),
+        supabase.from('contact_submissions').select('id', { count: 'exact', head: true }).eq('is_read', false),
+      ]);
 
-      if (statsError && statsError.code !== 'PGRST301') {
-        // Fallback: fetch individual counts if function doesn't exist
-        const [submissions, applications, posts, careers] = await Promise.all([
-          supabase.from('contact_submissions').select('id', { count: 'exact' }),
-          supabase.from('job_applications').select('id', { count: 'exact' }),
-          supabase.from('blog_posts').select('id', { count: 'exact' }),
-          supabase.from('career_openings').select('id', { count: 'exact' }).eq('status', true),
-        ]);
-
-        setStats({
-          contact_submissions: submissions.count || 0,
-          job_applications: applications.count || 0,
-          blog_posts: posts.count || 0,
-          career_openings: careers.count || 0,
-          unread_submissions: 0,
-        });
-      } else if (statsData) {
-        setStats(statsData as DashboardStats);
-      }
+      setStats({
+        contact_submissions: statsSubmissions.count || 0,
+        job_applications: statsApplications.count || 0,
+        blog_posts: statsPosts.count || 0,
+        career_openings: statsCareers.count || 0,
+        unread_submissions: statsUnread.count || 0,
+      });
 
       // Fetch recent submissions
-      const { data: submissions } = await supabase
+      const { data: recentSubmissions } = await supabase
         .from('contact_submissions')
-        .select('id, name, subject, created_at')
+        .select('id, name, email, message, created_at')
         .order('created_at', { ascending: false })
         .limit(3);
 
       // Fetch recent applications
-      const { data: applications } = await supabase
+      const { data: recentApplications } = await supabase
         .from('job_applications')
         .select('id, applicant_name, job_id, created_at')
         .order('created_at', { ascending: false })
         .limit(3);
 
       // Fetch recent blog posts
-      const { data: posts } = await supabase
+      const { data: recentPosts } = await supabase
         .from('blog_posts')
         .select('id, title, updated_at')
         .order('updated_at', { ascending: false })
@@ -117,17 +110,17 @@ const AdminDashboard = () => {
       // Build recent activity list
       const activities: RecentActivity[] = [];
 
-      submissions?.forEach((sub) => {
+      recentSubmissions?.forEach((sub) => {
         activities.push({
           id: sub.id,
           action: 'New contact submission',
-          item: `${sub.name} - ${sub.subject}`,
+          item: `${sub.name} - ${sub.message?.substring(0, 50) || 'No message'}`,
           time: getTimeAgo(new Date(sub.created_at)),
           type: 'submission',
         });
       });
 
-      applications?.forEach((app) => {
+      recentApplications?.forEach((app) => {
         activities.push({
           id: app.id,
           action: 'Job application received',
@@ -137,7 +130,7 @@ const AdminDashboard = () => {
         });
       });
 
-      posts?.forEach((post) => {
+      recentPosts?.forEach((post) => {
         activities.push({
           id: post.id,
           action: 'Blog post updated',

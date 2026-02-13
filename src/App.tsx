@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Toaster } from '@/components/ui/sonner';
 import { AuthProvider } from '@/contexts/AuthContext';
@@ -40,6 +40,7 @@ import AdminBanners from '@/pages/admin/Banners';
 import AdminBannerEdit from '@/pages/admin/BannerEdit';
 import AdminSubmissions from '@/pages/admin/Submissions';
 import AdminApplications from '@/pages/admin/Applications';
+import AdminBookings from '@/pages/admin/Bookings';
 import AdminSettings from '@/pages/admin/Settings';
 import AdminLogin from '@/pages/admin/Login';
 
@@ -88,6 +89,7 @@ function App() {
                 <Route path="/admin/banners/new" element={<AdminBannerEdit />} />
                 <Route path="/admin/banners/edit/:id" element={<AdminBannerEdit />} />
                 <Route path="/admin/submissions" element={<AdminSubmissions />} />
+                <Route path="/admin/bookings" element={<AdminBookings />} />
                 <Route path="/admin/applications" element={<AdminApplications />} />
                 <Route path="/admin/settings" element={<AdminSettings />} />
               </Route>

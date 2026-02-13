@@ -9,7 +9,8 @@ import {
   Settings, 
   LogOut,
   Menu,
-  X
+  X,
+  Calendar
 } from 'lucide-react';
 import { useState } from 'react';
 import { useAuthContext } from '@/contexts/AuthContext';
@@ -17,6 +18,7 @@ import { toast } from 'sonner';
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/admin' },
+  { icon: Calendar, label: 'Bookings', href: '/admin/bookings' },
   { icon: FileText, label: 'Blog Posts', href: '/admin/blog' },
   { icon: Briefcase, label: 'Careers', href: '/admin/careers' },
   { icon: Image, label: 'Banners', href: '/admin/banners' },
