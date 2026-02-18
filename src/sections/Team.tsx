@@ -3,15 +3,15 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const teamMembers = [
   {
-    name: 'Oluwaseun Adeyemi',
+    name: 'Qusim Adekunle SALAWUDEEN',
     title: 'Managing Partner',
     bio: 'Strategic leader with 15+ years in business consulting and transformation.',
-    image: '/images/team-1.jpg',
-    linkedin: '#',
-    email: 'seun@sqconsulting.com',
+    image: '/images/team-1.jpeg',
+    linkedin: 'http://www.linkedin.com/in/qusim-salawudeen-906ba468/',
+    email: 'qusimsalawudeen@gmail.com',
   },
   {
-    name: 'Chioma Nwosu',
+    name: 'Hasta Salem',
     title: 'Strategy Director',
     bio: 'Expert in market expansion and growth strategy for African businesses.',
     image: '/images/team-2.jpg',
