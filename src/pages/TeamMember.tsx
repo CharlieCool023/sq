@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { Linkedin, Mail, ArrowLeft, Award, GraduationCap, Briefcase, Quote } from 'lucide-react';
+import { Linkedin, Mail, ArrowLeft } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -10,8 +10,6 @@ const TeamMember = () => {
   const member = slug ? getTeamMemberBySlug(slug) : undefined;
   
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
-  const { ref: bioRef, isVisible: bioVisible } = useScrollAnimation();
-  const { ref: detailsRef, isVisible: detailsVisible } = useScrollAnimation();
 
   if (!member) {
     return (
@@ -41,7 +39,7 @@ const TeamMember = () => {
       
       <main>
         {/* Hero Section */}
-        <section ref={heroRef} className="pt-32 pb-16 relative overflow-hidden">
+        <section ref={heroRef} className="pt-32 pb-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#7B1F7B]/20 via-transparent to-[#F47B20]/10" />
           
           <div className="container-custom relative z-10">
@@ -56,7 +54,7 @@ const TeamMember = () => {
             <div className={`grid lg:grid-cols-2 gap-12 items-center transition-all duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {/* Image */}
               <div className="relative">
-                <div className="aspect-[3/4] rounded-3xl overflow-hidden bg-gradient-to-br from-[#7B1F7B]/30 to-[#F47B20]/30">
+                <div className="aspect-square max-w-md mx-auto lg:mx-0 rounded-3xl overflow-hidden bg-gradient-to-br from-[#7B1F7B]/30 to-[#F47B20]/30">
                   {member.image ? (
                     <img
                       src={member.image}
@@ -77,13 +75,13 @@ const TeamMember = () => {
               </div>
               
               {/* Info */}
-              <div>
+              <div className="lg:pl-8">
                 <div className="inline-flex items-center gap-2 text-[#F47B20] font-medium mb-4">
                   <span className="w-8 h-[2px] bg-[#F47B20]" />
                   <span>{member.title.toUpperCase()}</span>
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   {member.name}
                 </h1>
                 
@@ -100,7 +98,7 @@ const TeamMember = () => {
                     className="inline-flex items-center gap-2 px-5 py-3 bg-[#0077B5] text-white rounded-lg hover:bg-[#0077B5]/90 transition-colors"
                   >
                     <Linkedin className="w-5 h-5" />
-                    LinkedIn Profile
+                    LinkedIn
                   </a>
                   <a
                     href={`mailto:${member.email}`}
@@ -115,145 +113,25 @@ const TeamMember = () => {
           </div>
         </section>
 
-        {/* Quote Section */}
-        {member.quote && (
-          <section className="py-12 border-y border-white/10">
-            <div className="container-custom">
-              <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <Quote className="w-12 h-12 text-[#F47B20] mx-auto mb-6" />
-                <blockquote className="text-2xl md:text-3xl font-medium text-white italic leading-relaxed">
-                  "{member.quote}"
-                </blockquote>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Full Biography */}
-        <section ref={bioRef} className="py-20">
+        {/* About Section */}
+        <section className="py-16 border-t border-white/10">
           <div className="container-custom">
-            <div className={`max-w-4xl transition-all duration-700 ${bioVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`max-w-3xl transition-all duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="inline-flex items-center gap-2 text-[#F47B20] font-medium mb-6">
                 <span className="w-8 h-[2px] bg-[#F47B20]" />
                 <span>ABOUT</span>
               </div>
               
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                Professional Profile
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                More About {member.name.split(' ')[0]}
               </h2>
               
               <div className="prose prose-invert prose-lg max-w-none">
                 {member.fullBio.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-white/70 leading-relaxed mb-6">
+                  <p key={index} className="text-white/70 leading-relaxed">
                     {paragraph}
                   </p>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Expertise & Achievements */}
-        <section ref={detailsRef} className="py-20 bg-white/5">
-          <div className="container-custom">
-            <div className={`grid lg:grid-cols-2 gap-12 transition-all duration-700 ${detailsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              {/* Expertise */}
-              <div>
-                <div className="inline-flex items-center gap-2 text-[#F47B20] font-medium mb-6">
-                  <span className="w-8 h-[2px] bg-[#F47B20]" />
-                  <span>EXPERTISE</span>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Areas of Expertise
-                </h3>
-                
-                <div className="flex flex-wrap gap-3">
-                  {member.expertise.map((skill, index) => (
-                    <span 
-                      key={index}
-                      className="px-4 py-2 bg-gradient-to-r from-[#7B1F7B]/20 to-[#F47B20]/20 border border-white/10 rounded-full text-white/90 text-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Achievements */}
-              <div>
-                <div className="inline-flex items-center gap-2 text-[#F47B20] font-medium mb-6">
-                  <Award className="w-4 h-4" />
-                  <span>ACHIEVEMENTS</span>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Key Achievements
-                </h3>
-                
-                <ul className="space-y-4">
-                  {member.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#F47B20] mt-2 flex-shrink-0" />
-                      <span className="text-white/70">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Experience & Education */}
-        <section className="py-20">
-          <div className="container-custom">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Experience */}
-              <div>
-                <div className="inline-flex items-center gap-2 text-[#F47B20] font-medium mb-6">
-                  <Briefcase className="w-4 h-4" />
-                  <span>EXPERIENCE</span>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Professional Journey
-                </h3>
-                
-                <div className="space-y-6">
-                  {member.experience.map((exp, index) => (
-                    <div 
-                      key={index}
-                      className="relative pl-8 border-l-2 border-[#7B1F7B]/30"
-                    >
-                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-[#7B1F7B] border-2 border-[#1A1A2E]" />
-                      <p className="text-white/70">{exp}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Education */}
-              <div>
-                <div className="inline-flex items-center gap-2 text-[#F47B20] font-medium mb-6">
-                  <GraduationCap className="w-4 h-4" />
-                  <span>EDUCATION</span>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Academic Background
-                </h3>
-                
-                <div className="space-y-6">
-                  {member.education.map((edu, index) => (
-                    <div 
-                      key={index}
-                      className="relative pl-8 border-l-2 border-[#F47B20]/30"
-                    >
-                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-[#F47B20] border-2 border-[#1A1A2E]" />
-                      <p className="text-white/70">{edu}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -273,7 +151,7 @@ const TeamMember = () => {
               </h2>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {teamMembers
                 .filter(m => m.slug !== member.slug)
                 .slice(0, 3)
@@ -283,7 +161,7 @@ const TeamMember = () => {
                     to={`/team/${otherMember.slug}`}
                     className="group relative glass rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
                   >
-                    <div className="aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-[#7B1F7B]/20 to-[#F47B20]/20">
+                    <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-[#7B1F7B]/20 to-[#F47B20]/20">
                       {otherMember.image ? (
                         <img
                           src={otherMember.image}
@@ -299,8 +177,8 @@ const TeamMember = () => {
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E] via-[#1A1A2E]/50 to-transparent" />
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-[#F47B20] transition-colors">
+                    <div className="p-5">
+                      <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#F47B20] transition-colors">
                         {otherMember.name}
                       </h3>
                       <p className="text-[#F47B20] text-sm">{otherMember.title}</p>
