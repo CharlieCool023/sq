@@ -23,7 +23,7 @@ export const teamMembers: TeamMember[] = [
     id: '1',
     slug: 'qusim-salawudeen',
     name: 'Qusim Adekunle SALAWUDEEN',
-    title: 'Managing Partner',
+    title: 'Senior Consultant',
     shortBio: 'Strategic leader with 15+ years in business consulting and transformation.',
     fullBio: 'Qusim Adekunle Salawudeen is a seasoned business leader and entrepreneur with over 15 years of experience in consulting, strategy, and corporate transformation. As the Managing Partner of SQ Consulting, he leads the firm\'s strategic direction and ensures delivery of exceptional value to clients across Africa.\n\nHe has worked with over 200 organizations across various sectors including banking, telecommunications, manufacturing, and retail. His expertise lies in business transformation, operational efficiency, and strategic planning.\n\nBefore founding SQ Consulting, Qusim held senior leadership positions in several multinational corporations where he successfully led major transformation initiatives that resulted in significant revenue growth and operational improvements.',
     image: '/images/team-1.jpeg',
@@ -49,7 +49,7 @@ export const teamMembers: TeamMember[] = [
       'BSc, Economics - University of Lagos'
     ],
     experience: [
-      'Managing Partner, SQ Consulting (2018 - Present)',
+      'Senior Consultant, SQ Consulting (2018 - Present)',
       'Senior Consultant, McKinsey & Company (2012 - 2018)',
       'Business Development Manager, Shell Nigeria (2008 - 2012)'
     ],
@@ -59,12 +59,12 @@ export const teamMembers: TeamMember[] = [
     id: '2',
     slug: 'hasta-salem',
     name: 'Hasta Salem',
-    title: 'Strategy Director',
+    title: 'Chief Strategist',
     shortBio: 'Expert in market expansion and growth strategy for African businesses.',
     fullBio: 'Hasta Salem brings over 12 years of experience in strategic planning and business development, with a special focus on African markets. As Strategy Director at SQ Consulting, she oversees the development and implementation of growth strategies for clients seeking to expand their footprint across the continent.\n\nHer deep understanding of African consumer behavior, market dynamics, and regulatory environments has helped numerous international companies successfully enter and grow in African markets. She has worked with clients in over 15 African countries.\n\nHasta is known for her data-driven approach and ability to translate complex market insights into actionable growth strategies.',
     image: '/images/team-2.jpg',
-    linkedin: '#',
-    email: 'chioma@sqconsulting.com',
+    linkedin: 'https://www.linkedin.com/in/salemhastanuella/',
+    email: 'mzsalemh@gmail.com',
     expertise: [
       'Market Expansion Strategy',
       'Business Development',
@@ -85,7 +85,7 @@ export const teamMembers: TeamMember[] = [
       'BSc, Business Administration - University of Nigeria, Nsukka'
     ],
     experience: [
-      'Strategy Director, SQ Consulting (2020 - Present)',
+      'Chief Strategist, SQ Consulting (2020 - Present)',
       'Regional Business Lead, Unilever (2016 - 2020)',
       'Market Analyst, Nestle Nigeria (2012 - 2016)'
     ],
