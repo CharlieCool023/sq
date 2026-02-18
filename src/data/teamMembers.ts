@@ -61,41 +61,45 @@ export const teamMembers: TeamMember[] = [
   quote: 'Data-driven insight is the foundation of sustainable financial and institutional performance.'
     },
   {
-    id: '2',
-    slug: 'hasta-salem',
-    name: 'Hasta Salem',
-    title: 'Chief Strategist',
-    shortBio: 'Expert in market expansion and growth strategy for African businesses.',
-    fullBio: 'Hasta Salem brings over 12 years of experience in strategic planning and business development, with a special focus on African markets. As Strategy Director at SQ Consulting, she oversees the development and implementation of growth strategies for clients seeking to expand their footprint across the continent.\n\nHer deep understanding of African consumer behavior, market dynamics, and regulatory environments has helped numerous international companies successfully enter and grow in African markets. She has worked with clients in over 15 African countries.\n\nHasta is known for her data-driven approach and ability to translate complex market insights into actionable growth strategies.',
-    image: '/images/team-2.jpg',
-    linkedin: 'https://www.linkedin.com/in/salemhastanuella/',
-    email: 'mzsalemh@gmail.com',
-    expertise: [
-      'Market Expansion Strategy',
-      'Business Development',
-      'Market Research & Analytics',
-      'Competitive Positioning',
-      'Partnership Development',
-      'Growth Strategy'
-    ],
-    achievements: [
-      'Successfully launched 30+ products in African markets',
-      'Developed market entry strategies for 5 Fortune 500 companies',
-      'Increased client revenues by an average of 40%',
-      'Author of "Growth Playbook for African Markets"',
-      'Named Top 40 Under 40 Business Leaders in Nigeria'
-    ],
-    education: [
-      'MSc, International Business - University of Warwick',
-      'BSc, Business Administration - University of Nigeria, Nsukka'
-    ],
-    experience: [
-      'Chief Strategist, SQ Consulting (2020 - Present)',
-      'Regional Business Lead, Unilever (2016 - 2020)',
-      'Market Analyst, Nestle Nigeria (2012 - 2016)'
-    ],
-    quote: 'Africa is not just a market—it\'s the future of global business.'
-  },
+  id: '2',
+  slug: 'hasta-salem',
+  name: 'Salem Hasta',
+  title: 'Head of Growth & Strategy',
+  shortBio: 'Growth and strategy professional with 6+ years scaling fintech and e-commerce businesses through market expansion, partnerships, and operational excellence.',
+  fullBio: 'Salem H. is a growth and strategy professional with over 6 years of experience scaling fintech, e-commerce, and digital banking operations across Nigeria. She specializes in market expansion, strategic partnerships, operational optimization, and performance-driven growth execution.\n\nShe currently serves as a Strategic Growth & Retention Consultant at Hakash Limited, where she designs data-backed customer engagement frameworks, builds performance dashboards, and develops partner acquisition systems that have reduced user dormancy by 56% and increased client acquisition by 40%.\n\nPreviously, she was Head of Growth & Agency Operations Strategy at Sabi, where she led expansion across five regions, achieving 112% customer acquisition growth, 700% regional market penetration, and 60% reduction in operational costs through automation and process optimization. She also developed a five-year strategic blueprint that supported the launch of Katsupay, Katsu MFB, and Katsu Cloud.\n\nHer earlier roles at SANEF Limited and Nigeria Inter-Bank Settlement Systems (NIBSS) strengthened her expertise in financial inclusion, stakeholder management, executive coordination, and B2B onboarding at scale.\n\nSalem brings a strong blend of strategic thinking and hands-on execution, working closely with C-level executives, product teams, and field operations to deliver measurable, scalable impact.',
+  image: '/images/team-2.jpg',
+  linkedin: 'https://www.linkedin.com/in/salemhastanuella/',
+  email: 'mzsalemh@gmail.com',
+  expertise: [
+    'Growth Strategy & Market Expansion',
+    'Strategic Partnerships & B2B Onboarding',
+    'Fintech & Digital Banking Operations',
+    'Performance Dashboards & KPI Alignment',
+    'Customer Acquisition & Retention Strategy',
+    'Operational Optimization & Cost Reduction',
+    'Stakeholder Management & Executive Support'
+  ],
+  achievements: [
+    'Increased customer acquisition by 112% and market expansion by 80% within 12 months at Sabi',
+    'Drove 700% regional market penetration across five Nigerian zones',
+    'Reduced operational costs by 60% through automation and process streamlining',
+    'Reduced user dormancy by 56% and increased client base by 40% at Hakash',
+    'Exceeded CBN financial inclusion KPIs by 50% at SANEF',
+    'Achieved 100% onboarding of all DMBs onto SANEF’s technology platform'
+  ],
+  education: [
+    'BA, Linguistics – Obafemi Awolowo University (2011–2016)'
+  ],
+  experience: [
+    'Strategic Growth & Retention Consultant – Hakash Limited (Aug 2021 – Present)',
+    'Head of Growth & Agency Operations Strategy – Sabi (Apr 2023 – Apr 2024)',
+    'Regional Growth Lead – South-South Market – Sabi (Oct 2022 – Apr 2023)',
+    'Client Growth & Stakeholder Relations Manager – SANEF Limited (Jul 2019 – Jul 2021)',
+    'Executive Business Operations Associate – SANEF Limited (Feb 2019 – Jun 2019)',
+    'Executive Assistant – Nigeria Inter-Bank Settlement Systems PLC (Feb 2018 – Nov 2018)'
+  ],
+  quote: 'Sustainable growth happens at the intersection of strategy, execution, and measurable impact.'
+},
   {
     id: '3',
     slug: 'ibrahim-mohammed',
