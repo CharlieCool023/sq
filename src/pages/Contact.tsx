@@ -254,12 +254,12 @@ const Contact = () => {
                         className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-[#7B1F7B] transition-all"
                         required
                       >
-                        <option value="">Select a service</option>
-                        <option value="Strategy">Strategy Consultation</option>
-                        <option value="Finance">Financial Analysis</option>
-                        <option value="Technology">Digital Transformation</option>
-                        <option value="Training">Training Program</option>
-                        <option value="Other">Other</option>
+                        <option value="" className="bg-[#2D2D3A] text-white">Select a service</option>
+                        <option value="Strategy" className="bg-[#2D2D3A] text-white">Strategy Consultation</option>
+                        <option value="Finance" className="bg-[#2D2D3A] text-white">Financial Analysis</option>
+                        <option value="Technology" className="bg-[#2D2D3A] text-white">Digital Transformation</option>
+                        <option value="Training" className="bg-[#2D2D3A] text-white">Training Program</option>
+                        <option value="Other" className="bg-[#2D2D3A] text-white">Other</option>
                       </select>
                     </div>
 
