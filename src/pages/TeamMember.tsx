@@ -139,7 +139,7 @@ const TeamMember = () => {
               </div>
               
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                Biography
+                Professional Profile
               </h2>
               
               <div className="prose prose-invert prose-lg max-w-none">
