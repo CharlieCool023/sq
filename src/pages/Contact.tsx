@@ -59,7 +59,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message) {
       toast.error('Please fill in all required fields');
       return;
     }
@@ -74,7 +74,7 @@ const Contact = () => {
           email: formData.email,
           phone: formData.phone,
           company: formData.company,
-          subject: formData.subject,
+          service: formData.service,
           message: formData.message,
           is_read: false,
         }]);
@@ -89,7 +89,7 @@ const Contact = () => {
         email: '',
         phone: '',
         company: '',
-        subject: '',
+        service: '',
         message: '',
       });
 
@@ -238,17 +238,22 @@ const Contact = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-white/80 mb-2">
-                        Subject <span className="text-[#F47B20]">*</span>
+                        Service <span className="text-[#F47B20]">*</span>
                       </label>
-                      <input
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
+                      <select
+                        name="service"
+                        value={formData.service}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#7B1F7B] transition-all"
-                        placeholder="How can we help?"
+                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-[#7B1F7B] transition-all"
                         required
-                      />
+                      >
+                        <option value="">Select a service</option>
+                        <option value="Strategy">Strategy Consultation</option>
+                        <option value="Finance">Financial Analysis</option>
+                        <option value="Technology">Digital Transformation</option>
+                        <option value="Training">Training Program</option>
+                        <option value="Other">Other</option>
+                      </select>
                     </div>
 
                     <div>
