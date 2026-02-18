@@ -46,17 +46,6 @@ export const teamMembers: TeamMember[] = [
     linkedin: 'www.linkedin/in/charles-onah023/',
     email: 'charlesonah023@gmail.com',
   },
-  // {
-  //   id: '4',
-  //   slug: 'ngozi-eze',
-  //   name: 'Ngozi Eze',
-  //   title: 'Operations Manager',
-  //   shortBio: 'Process optimization expert focused on operational excellence.',
-  //   fullBio: 'Ngozi manages our operations, ensuring seamless delivery of consulting services. Her expertise in process optimization and operational excellence helps clients achieve efficiency and cost-effectiveness.\n\nShe brings a systematic approach to improving business processes, resulting in significant improvements for our clients.',
-  //   image: '/images/team-4.jpg',
-  //   linkedin: '#',
-  //   email: 'ngozi@sqconsulting.com',
-  // },
 ];
 
 // Helper function to get team member by slug
