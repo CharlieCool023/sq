@@ -86,7 +86,7 @@ const CTA = () => {
 
           {/* Trust Text */}
           <p className="text-white/50 text-sm mt-8">
-            No commitment required. 30-minute strategy session.
+            No commitment required. 10-minute strategy session.
           </p>
         </div>
       </div>

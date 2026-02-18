@@ -121,7 +121,7 @@ const BookingModal = () => {
             <X className="w-5 h-5" />
           </button>
           <h2 className="text-2xl font-bold text-white">Book a Consultation</h2>
-          <p className="text-white/80 mt-1">Schedule your free 30-minute strategy session</p>
+          <p className="text-white/80 mt-1">Schedule your free 10-minute strategy session</p>
         </div>
 
         {/* Content */}
@@ -286,7 +286,7 @@ const BookingModal = () => {
               </button>
 
               <p className="text-center text-white/40 text-xs">
-                No commitment required. 30-minute strategy session.
+                No commitment required. 10-minute strategy session.
               </p>
             </form>
           )}
