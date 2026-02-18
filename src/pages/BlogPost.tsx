@@ -19,11 +19,18 @@ interface BlogPost {
   created_at: string;
 }
 
+interface RelatedPost {
+  id: string;
+  slug: string;
+  title: string;
+  read_time: number;
+}
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { openBooking } = useBannerContext();
   const [post, setPost] = useState<BlogPost | null>(null);
-  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const [relatedPosts, setRelatedPosts] = useState<RelatedPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -205,7 +212,7 @@ const BlogPost = () => {
                           <h4 className="text-white group-hover:text-[#F47B20] transition-colors text-sm font-medium mb-1">
                             {related.title}
                           </h4>
-                          <span className="text-white/40 text-xs">{related.readTime} min read</span>
+                          <span className="text-white/40 text-xs">{related.read_time} min read</span>
                         </Link>
                       ))}
                     </div>
