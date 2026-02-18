@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Save, Lock, Building, Mail, Phone, MapPin, Eye, EyeOff } from 'lucide-react';
 import { toast } from 'sonner';
+import { supabase } from '@/lib/database';
 
 const AdminSettings = () => {
   const [activeTab, setActiveTab] = useState<'company' | 'password'>('company');
@@ -51,22 +52,41 @@ const AdminSettings = () => {
       return;
     }
     
-    if (passwordData.newPassword.length < 8) {
-      toast.error('Password must be at least 8 characters');
+    if (passwordData.newPassword.length < 6) {
+      toast.error('Password must be at least 6 characters');
       return;
     }
 
     setIsLoading(true);
     
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      // Get current session to verify current password
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (!session) {
+        toast.error('Please log in again');
+        return;
+      }
+
+      // Update password using Supabase auth
+      const { error } = await supabase.auth.updateUser({
+        password: passwordData.newPassword
+      });
+
+      if (error) throw error;
+
       setPasswordData({
         currentPassword: '',
         newPassword: '',
         confirmPassword: '',
       });
       toast.success('Password changed successfully');
-    }, 1000);
+    } catch (error: any) {
+      console.error('Error changing password:', error);
+      toast.error(error.message || 'Failed to change password');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

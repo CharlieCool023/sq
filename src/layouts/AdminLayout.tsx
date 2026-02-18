@@ -10,7 +10,8 @@ import {
   LogOut,
   Menu,
   X,
-  Calendar
+  Calendar,
+  Shield
 } from 'lucide-react';
 import { useState } from 'react';
 import { useAuthContext } from '@/contexts/AuthContext';
@@ -24,6 +25,7 @@ const navItems = [
   { icon: Image, label: 'Banners', href: '/admin/banners' },
   { icon: MessageSquare, label: 'Submissions', href: '/admin/submissions' },
   { icon: Users, label: 'Applications', href: '/admin/applications' },
+  { icon: Shield, label: 'Admins', href: '/admin/admins' },
   { icon: Settings, label: 'Settings', href: '/admin/settings' },
 ];
 

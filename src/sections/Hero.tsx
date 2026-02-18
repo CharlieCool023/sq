@@ -183,7 +183,7 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Stats Cards */}
-          <div className="hidden lg:grid grid-cols-2 gap-4">
+          <div className="hidden md:grid grid-cols-2 gap-4">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
@@ -201,7 +201,7 @@ const Hero = () => {
         </div>
 
         {/* Mobile Stats */}
-        <div className="lg:hidden mt-12 grid grid-cols-2 gap-4">
+        <div className="md:hidden mt-12 grid grid-cols-2 gap-4">
           {stats.map((stat) => (
             <div key={stat.label} className="glass rounded-xl p-4 text-center">
               <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>

@@ -42,6 +42,7 @@ import AdminBannerEdit from '@/pages/admin/BannerEdit';
 import AdminSubmissions from '@/pages/admin/Submissions';
 import AdminApplications from '@/pages/admin/Applications';
 import AdminBookings from '@/pages/admin/Bookings';
+import AdminAdmins from '@/pages/admin/Admins';
 import AdminSettings from '@/pages/admin/Settings';
 import AdminLogin from '@/pages/admin/Login';
 
@@ -91,6 +92,7 @@ function App() {
                 <Route path="/admin/banners/edit/:id" element={<AdminBannerEdit />} />
                 <Route path="/admin/submissions" element={<AdminSubmissions />} />
                 <Route path="/admin/bookings" element={<AdminBookings />} />
+                <Route path="/admin/admins" element={<AdminAdmins />} />
                 <Route path="/admin/applications" element={<AdminApplications />} />
                 <Route path="/admin/settings" element={<AdminSettings />} />
               </Route>

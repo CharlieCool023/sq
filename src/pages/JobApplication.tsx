@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { supabase } from '@/lib/database';
 import { toast } from 'sonner';
+import { validateFile, compressFile } from '@/lib/fileUtils';
 
 interface CareerOpening {
   id: string;
@@ -82,12 +83,10 @@ const JobApplication = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      if (file.size > 5 * 1024 * 1024) {
-        toast.error('File size must be less than 5MB');
-        return;
-      }
-      if (!['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(file.type)) {
-        toast.error('Please upload a PDF or Word document');
+      const validation = validateFile(file);
+      if (!validation.valid) {
+        toast.error(validation.error!);
+        e.target.value = '';
         return;
       }
       setResume(file);
@@ -109,12 +108,15 @@ const JobApplication = () => {
 
       // Upload resume to Supabase Storage if resume is selected
       if (resume) {
+        // Compress file before upload
+        const compressedFile = await compressFile(resume);
+        
         const fileExt = resume.name.split('.').pop();
         const fileName = `${Date.now()}-${Math.random()}.${fileExt}`;
         
         const { error: uploadError } = await supabase.storage
           .from('resumes')
-          .upload(fileName, resume);
+          .upload(fileName, compressedFile);
 
         if (uploadError) throw uploadError;
 
