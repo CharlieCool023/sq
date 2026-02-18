@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, Trash2, Shield, Mail, Search, Edit2, X, Check } from 'lucide-react';
+import { Plus, Trash2, Search, X, Check } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/database';
