@@ -36,16 +36,16 @@ export const teamMembers: TeamMember[] = [
     email: 'mzsalemh@gmail.com',
   },
   {
-    id: '3',
-    slug: 'charles-onah',
-    name: 'Charles Onah',
-    title: 'Technology Lead',
-    shortBio: 'Digital transformation specialist with expertise in ERP and cloud solutions.',
-    fullBio: 'Ibrahim heads our technology practice, guiding organizations through their digital transformation journeys. He specializes in leveraging technology to drive business value, from ERP implementations to cloud strategies.\n\nWith extensive experience in enterprise technology, he helps clients modernize their operations and embrace digital capabilities.',
-    image: '/images/team-3.jpg',
-    linkedin: 'www.linkedin/in/charles-onah023/',
-    email: 'charlesonah023@gmail.com',
-  },
+  id: '3',
+  slug: 'charles-onah',
+  name: 'Charles Onah',
+  title: 'Technology & Digital Strategy Lead',
+  shortBio: 'Technology strategist focused on building scalable digital systems, optimizing operations, and translating business needs into high-impact technical solutions.',
+  fullBio: 'Charles leads the firm’s technology and digital strategy initiatives, working at the intersection of business objectives and technical execution. He specializes in designing scalable systems, optimizing digital operations, and implementing practical technology frameworks that drive measurable growth.\n\nWith strong expertise in system architecture, product development, and process automation, Charles helps organizations streamline workflows, improve performance visibility, and build resilient digital infrastructure. His approach blends strategic thinking with hands-on execution — ensuring technology investments directly support business outcomes.\n\nHe is particularly passionate about helping growth-stage and enterprise organizations leverage modern tools, data systems, and automation to improve efficiency, enhance customer experience, and scale sustainably.',
+  image: '/images/team-3.jpg',
+  linkedin: 'https://www.linkedin.com/in/charles-onah023/',
+  email: 'charlesonah023@gmail.com',
+}
 ];
 
 // Helper function to get team member by slug
