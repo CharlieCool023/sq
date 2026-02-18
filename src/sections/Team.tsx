@@ -1,46 +1,14 @@
+import { Link } from 'react-router-dom';
 import { Linkedin, Mail } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-
-const teamMembers = [
-  {
-    name: 'Qusim Adekunle SALAWUDEEN',
-    title: 'Managing Partner',
-    bio: 'Strategic leader with 15+ years in business consulting and transformation.',
-    image: '/images/team-1.jpeg',
-    linkedin: 'http://www.linkedin.com/in/qusim-salawudeen-906ba468/',
-    email: 'qusimsalawudeen@gmail.com',
-  },
-  {
-    name: 'Hasta Salem',
-    title: 'Strategy Director',
-    bio: 'Expert in market expansion and growth strategy for African businesses.',
-    image: '/images/team-2.jpg',
-    linkedin: '#',
-    email: 'chioma@sqconsulting.com',
-  },
-  {
-    name: 'Ibrahim Mohammed',
-    title: 'Technology Lead',
-    bio: 'Digital transformation specialist with expertise in ERP and cloud solutions.',
-    image: '/images/team-3.jpg',
-    linkedin: '#',
-    email: 'ibrahim@sqconsulting.com',
-  },
-  {
-    name: 'Ngozi Eze',
-    title: 'Operations Manager',
-    bio: 'Process optimization expert focused on operational excellence.',
-    image: '/images/team-4.jpg',
-    linkedin: '#',
-    email: 'ngozi@sqconsulting.com',
-  },
-];
+import { teamMembers } from '@/data/teamMembers';
 
 const Team = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
+  // Add id for anchor navigation
   return (
-    <section ref={ref} className="section-padding relative overflow-hidden">
+    <section id="team" ref={ref} className="section-padding relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F47B20]/5 to-transparent" />
 
@@ -68,8 +36,9 @@ const Team = () => {
         {/* Team Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
-            <div
-              key={member.name}
+            <Link
+              to={`/team/${member.slug}`}
+              key={member.id}
               className={`group relative glass rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
@@ -97,6 +66,9 @@ const Team = () => {
                 <div className="absolute bottom-4 left-4 right-4 flex justify-center gap-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   <a
                     href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#7B1F7B] transition-colors"
                     aria-label={`${member.name}'s LinkedIn`}
                   >
@@ -104,6 +76,7 @@ const Team = () => {
                   </a>
                   <a
                     href={`mailto:${member.email}`}
+                    onClick={(e) => e.stopPropagation()}
                     className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#F47B20] transition-colors"
                     aria-label={`Email ${member.name}`}
                   >
@@ -118,9 +91,9 @@ const Team = () => {
                   {member.name}
                 </h3>
                 <p className="text-[#F47B20] text-sm mb-3">{member.title}</p>
-                <p className="text-white/60 text-sm line-clamp-2">{member.bio}</p>
+                <p className="text-white/60 text-sm line-clamp-2">{member.shortBio}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

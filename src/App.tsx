@@ -17,6 +17,7 @@ import Contact from '@/pages/Contact';
 import SuccessStories from '@/pages/SuccessStories';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import TermsOfService from '@/pages/TermsOfService';
+import TeamMember from '@/pages/TeamMember';
 import NotFound from '@/pages/NotFound';
 
 // Scroll to top component
@@ -73,6 +74,7 @@ function App() {
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/team/:slug" element={<TeamMember />} />
 
             {/* Admin Login */}
             <Route path="/admin/login" element={<AdminLogin />} />
