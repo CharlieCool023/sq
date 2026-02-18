@@ -20,41 +20,46 @@ export interface TeamMember {
 
 export const teamMembers: TeamMember[] = [
   {
-    id: '1',
-    slug: 'qusim-salawudeen',
-    name: 'Qusim Adekunle SALAWUDEEN',
-    title: 'Senior Consultant',
-    shortBio: 'Strategic leader with 15+ years in business consulting and transformation.',
-    fullBio: 'Qusim Adekunle Salawudeen is a seasoned business leader and entrepreneur with over 15 years of experience in consulting, strategy, and corporate transformation. As the Managing Partner of SQ Consulting, he leads the firm\'s strategic direction and ensures delivery of exceptional value to clients across Africa.\n\nHe has worked with over 200 organizations across various sectors including banking, telecommunications, manufacturing, and retail. His expertise lies in business transformation, operational efficiency, and strategic planning.\n\nBefore founding SQ Consulting, Qusim held senior leadership positions in several multinational corporations where he successfully led major transformation initiatives that resulted in significant revenue growth and operational improvements.',
-    image: '/images/team-1.jpeg',
-    linkedin: 'http://www.linkedin.com/in/qusim-salawudeen-906ba468/',
-    email: 'qusimsalawudeen@gmail.com',
-    expertise: [
-      'Business Strategy & Transformation',
-      'Operational Excellence',
-      'Change Management',
-      'Corporate Restructuring',
-      'Market Entry Strategy',
-      'Leadership Development'
-    ],
-    achievements: [
-      'Led 200+ consulting engagements across Africa',
-      'Delivered over $50M in client value',
-      'Built SQ Consulting from ground up to industry leader',
-      'Recognized as Top Management Consultant in Nigeria 2023',
-      'Speaker at African Business Summit 2022 & 2023'
-    ],
-    education: [
-      'MBA, Strategic Management - Lagos Business School',
-      'BSc, Economics - University of Lagos'
-    ],
-    experience: [
-      'Senior Consultant, SQ Consulting (2018 - Present)',
-      'Senior Consultant, McKinsey & Company (2012 - 2018)',
-      'Business Development Manager, Shell Nigeria (2008 - 2012)'
-    ],
-    quote: 'Excellence is not a destination but a continuous journey of improvement.'
-  },
+  id: '1',
+  slug: 'qusim-salawudeen',
+  name: 'Qusim Adekunle SALAWUDEEN',
+  title: 'Advisor, Finance & Performance Analyses',
+  shortBio: 'Big Data Analytics and Monitoring & Evaluation specialist with 11+ years of experience in financial inclusion, credit administration, and performance management.',
+  fullBio: 'Qusim Adekunle Salawudeen is a data-driven finance and performance analytics professional with over 11 years of experience spanning Big Data Analysis & Visualization, Monitoring, Evaluation & Learning (MEL), Credit Administration, and Financial Inclusion.\n\nHe currently serves as Advisor, Finance & Performance Analyses at Meristem Wealth Management Limited (Administrator of the CBN’s Nigerian Electricity Market Stabilization Facility - NEMSF), where he supports the administration of the over ₦600 billion stabilization facility in Nigeria’s power sector. He defines and implements performance management frameworks, designs automated dashboards using Microsoft Excel and Power BI, and monitors facility repayment and project performance.\n\nPreviously, he held roles including Monitoring & Evaluation Officer at Impact Credit Guarantee Limited (ICGL), Team Lead – Monitoring & Intelligence at SANEF, and Business Analyst at CRC Credit Bureau Limited. Across these roles, he led data validation, business intelligence reporting, financial inclusion monitoring, KPI tracking, and research-driven analytics initiatives.\n\nHis core strengths include advanced Excel modeling, Power BI dashboard development, performance monitoring systems design, and MEL framework implementation.',
+  image: '/images/team-1.jpeg',
+  linkedin: 'http://www.linkedin.com/in/qusim-salawudeen-906ba468/',
+  email: 'qusimsalawudeen@gmail.com',
+  expertise: [
+    'Big Data Analytics & Visualization',
+    'Monitoring, Evaluation & Learning (MEL)',
+    'Performance Management Frameworks',
+    'Financial Inclusion Monitoring',
+    'Business Intelligence Reporting',
+    'Microsoft Excel & Power BI',
+    'Credit Administration & SME Finance'
+  ],
+  achievements: [
+    'Administers performance monitoring for the ₦600B+ Nigerian Electricity Market Stabilization Facility (NEMSF)',
+    'Designed automated performance management dashboards using Excel and Power BI',
+    'Led nationwide monitoring of agent network performance under SANEF financial inclusion initiative',
+    'Managed end-to-end data validation, analytics, and BI reporting at ICGL',
+    'Served as analyst and project coordinator for industry publications: Credit Channel and Credit Watch'
+  ],
+  education: [
+    'MBA, Banking & Finance – University of Nigeria (2022–2024)',
+    'MSc, Actuarial Science – University of Lagos (2015–2016)',
+    'BSc, Mathematics & Economics – University of Benin (2006–2010)'
+  ],
+  experience: [
+    'Advisor, Finance & Performance Analyses – Meristem Wealth Management Limited (Sep 2022 – Present)',
+    'Monitoring & Evaluation Officer – Impact Credit Guarantee Limited (Oct 2020 – Sep 2022)',
+    'Team Lead, Monitoring & Intelligence – SANEF (Mar 2019 – Oct 2020)',
+    'Senior Analyst, Performance Monitoring – Meristem Wealth Management Limited (Jul 2017 – Mar 2019)',
+    'Business Analyst – CRC Credit Bureau Limited (Aug 2015 – Jul 2017)',
+    'Executive Assistant to CEO – CRC Credit Bureau Limited (Aug 2014 – Aug 2015)'
+  ],
+  quote: 'Data-driven insight is the foundation of sustainable financial and institutional performance.'
+    },
   {
     id: '2',
     slug: 'hasta-salem',
