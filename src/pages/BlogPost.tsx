@@ -48,7 +48,19 @@ const BlogPost = () => {
         .eq('published', true)
         .single();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error fetching post:', error);
+        throw error;
+      }
+      
+      if (!data) {
+        console.error('No post found with slug:', slug);
+        setPost(null);
+        setIsLoading(false);
+        return;
+      }
+
+      console.log('Fetched post:', data);
       setPost(data);
 
       // Fetch related posts
